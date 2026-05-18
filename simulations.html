@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFD</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: visible;
+        }
+
+        header {
+            padding: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { margin-bottom: 0; color: #111; }
+        header p { color: #555; }
+
+        nav {
+            height: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        p {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            width: 50%;
+            margin: 0 auto;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        figcaption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+        <h1>Computer Simulations</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Projects ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/planes.html">RC Airplanes</a></li>
+                        <li><a href="/boats.html">RC Boats</a></li>
+                        <li><a href="/DBF.html">Design Build Fly</a></li>
+                        <li><a href="/programming.html">Programming</a></li>
+                        <li><a href="/photography.html">Photography</a></li>
+                        <li><a href="/simulations.html">Simulations</a></li>
+                        <li><a href="/other.html">Other</a></li>
+                    </ul>
+                </li>
+
+                <!--<li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <p>I initially started using CFD to help design my RC aircraft. I wanted to use a special type of low speed airfoil called a Jedelsky foil, because people online claimed it worked really well for small model gliders. It also was relatively easy to build with the construction technique I used, but there wasnt anything online about how this airfoil actually performed.</p>
+
+    <figure>
+        <img src="/images/jedelsky/IMG_1583.jpg">
+        <figcaption>Jedelsky Foil</figcaption>
+    </figure>
+
+    <p>Initially, I used a software dedicated to aircraft design called XFLR5, but I was worried it was too optimized for "normal" airfoils, so I used ANSYS to verify the results.</p>
+
+    <figure>
+        <img src="/images/jedelsky/ANSYS/pressure on wing.png">
+        <figcaption>ANSYS simulation</figcaption>
+    </figure>
+
+    <figure>
+        <img src="/images/jedelsky/ANSYS/xflr5.webp">
+        <figcaption>XFLR5 simulation</figcaption>
+    </figure>
+
+    <p>I also decided to run a fluid structure interaction simulation to see if the wing could withstand aerodynamic forces during flight.</p>
+
+    <figure>
+        <img src="/images/jedelsky/ANSYS/deformation.png">
+        <figcaption>Fluid-structure interation</figcaption>
+    </figure>
+
+
+    <p>Later I found a research opportunity at the University of Shanghai for Science and Technology, doing CFD simulations of various objects inside an atomic layer deposition chamber that was designed for silicon wafers. While coating flat silicon wafers using ALD is easy because gas flows evenly over a flat plate, we had to coat objects such as spheres. This would introduce problems such as flow seperation around the objects leading to spots with inconsistent coating. I moved the objects around and varied the geometry of the chamber to get even airflow and speed up manufacturing time.</p>
+
+    <figure>
+        <img src="/images/ALD/loop.webp">
+        <figcaption>Simulated TMA gas pulse</figcaption>
+    </figure>
+
+    <p></p>
+
+    <p></p>
+    <br><br>
+
+</body>
+</html>

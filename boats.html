@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: visible;
+        }
+
+        header {
+            padding: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { margin-bottom: 0; color: #111; }
+        header p { color: #555; }
+
+        nav {
+            height: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        p {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            width: 50%;
+            margin: 0 auto;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        figcaption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+        <h1>Boats</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Projects ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/planes.html">RC Airplanes</a></li>
+                        <li><a href="/boats.html">RC Boats</a></li>
+                        <li><a href="/DBF.html">Design Build Fly</a></li>
+                        <li><a href="/programming.html">Programming</a></li>
+                        <li><a href="/photography.html">Photography</a></li>
+                        <li><a href="/simulations.html">Simulations</a></li>
+                        <li><a href="/other.html">Other</a></li>
+                    </ul>
+                </li>
+
+                <!--<li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <p>While I was figuring out how to get my RC planes to not crash less than a minute after takeoff, I decided to tackle what I believed to be a slightly easier challenge: boats. To me, it seemed like a much simpler problem. Boats didn't require active pilot input to remain steady. I didn't need crazy reaction times to avoid trees or the ground, and the electronics seemed easier to figure out. Initially, I was right, and building the bare minimum boat the floated in the water, had a motor, and could move proved to be fairly easy.</p>
+
+    <figure>
+        <img src="/images/boat/IMG_0044.jpg" alt="boat">
+        <figcaption>Boat</figcaption>
+    </figure>
+
+    <p>O</p>
+
+    <p>Once I got the basic function of the boat to work, I took inspiration</p>
+
+    <p>When I built the boat, there was an internet trend where people would take magnets out to lakes and rivers and "fish" for items on the riverbed. I decided that this boat was the perfect platform to put a crane on, so I could put a camera on it and take pictures of what was underwater. Then, once I found something, I would remove the camera and replace it with a magnet that could bring whatever I found up from the bottom.</p>
+
+    <figure>
+        <img src="/images/boat/IMG_20231028_183649976.jpg" alt="electronics">
+        <figcaption>Boat Electronics</figcaption>
+    </figure>
+
+    <p>Modifying the electronics to acommodate for the crane turned out to be much more challenging and more interesting than expected. Initially, I use only one ESP-8266 microcontroller. However, since the microcontroller was controlling both the rotation of the crane lift motor and the throttle at the same time, it would seize up occasionally. Eventually, I discovered that the stepper motor library I was using caused the microcontroller to pause all other running code and focus entirely on driving the stepper motor.</p>
+
+    <p>What I needed was multithreading, but the ESP-8266 did not support microthreading, and I was on a rush to get the project done without needing to order more parts. Instead, I simply chained 2 microcontrollers together. The primary microcontroller handled recieving inputs from the reciever, rudder, and throttle, which all could be done on a single thread without interrupting each other's function. A second microcontroller was dedicated solely to driving the stepper motor. Whenever the main microcontroller recieved an input to raise/lower the crane, the main microcontroller would send an interrupt to the other microcontroller along with some information about how much the motor needed to turn.</p>
+
+    <figure>
+        <img src="/images/boat/bruh.png" alt="very blurry underwater photo">
+        <figcaption>Picture I took underwater</figcaption>
+    </figure>
+
+    <p>So how did the images turn out from the camera? Yep, that's right, you can't see anything underwater. I thought of putting a flashlight underwater with the camera, but I realized that lighting wasn't the issue. The issue instead was that condensation would form on the inside of the glass jar I used, causing the image to come out blurry even in shallow waters (where this image was taken)</p>
+
+    <!--<figure>
+        <img src="/images/boat/" alt="a">
+        <figcaption>hydrofoil</figcaption>
+    </figure>
+
+    <p>Hydrofoils: </p>
+
+
+    <p>HYDROFOIL WIP </p>-->
+
+    <br><br>
+
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Portfolio</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: visible;
+        }
+
+        header {
+            padding: 20px 40px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { margin-bottom: 0; color: #111; }
+        header p { color: #555; }
+
+        nav {
+            height: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+
+
+        /* COLLAGE STUFF BELOW */
+
+        .collage-container {
+            /*flex-grow: 1;
+            overflow-y: auto;*/
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(max(25%, 30vh), 1fr));
+            grid-auto-flow: dense;
+            gap: 0;
+/*             border: 2px solid black; */
+            background: black;
+        }
+
+        @media (min-width: 1500px) {
+            .collage-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .item {
+            border: 2px solid black;
+            position: relative;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .wide { grid-column: span 2; }
+        .skinny { grid-column: span 1; }
+        .tall { grid-row: span 2; }
+        .big { grid-column: span 2; grid-row: span 2; }
+        .link {cursor: pointer;}
+
+        .text-box { padding: 10px; font-weight: bold; color: white;}
+        .game-box { background: #333; color: white; width: 100%; height: 100%; }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+        }
+        .modal-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px; right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .size-md {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .size-lg-game {
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+        .fixed-size {
+            /*width: 300px !important;*/
+            height: 520px !important;
+            grid-column: span 2 !important;
+            grid-row: auto !important;
+        }
+        .fourwide {
+            /*width: 300px !important;*/
+            grid-column: span 4;
+            height: 520px !important;
+        }
+        .square {
+            /*width: 300px !important;*/
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+
+        #terminal {
+            background-color: #1e1e1e;
+            padding: 20px;
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            color: #cccccc;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #output {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .input-line {
+            display: flex;
+            align-items: center;
+        }
+
+        .prompt {
+            color: #00ff00; /* Green prompt */
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        #command-input {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: inherit;
+            outline: none;
+            flex-grow: 1;
+        }
+
+        .error { color: #ff5555; }
+        .info { color: #5555ff; }
+
+        a {
+/*             display: inline-block; */
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+
+        a img {
+            object-fit: cover;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+            <h1>Portfolio</h1>
+        <p>A collection of my photography, thoughts, and projects. Click on any tile to explore more.</p>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Projects and Experience ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/planes.html">RC Airplanes</a></li>
+                        <li><a href="/boats.html">RC Boats</a></li>
+                        <li><a href="/DBF.html">Design Build Fly</a></li>
+                        <li><a href="/programming.html">Programming</a></li>
+                        <li><a href="/photography.html">Photography</a></li>
+                        <li><a href="/simulations.html">Simulations</a></li>
+                        <li><a href="/other.html">Other</a></li>
+
+                        <!--<hr style="border: 0; border-top: 1px solid #eee; margin: 5px 0;">
+                        <li><a href="#all-projects">View All</a></li>-->
+                    </ul>
+                </li>
+
+                <!--<li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="collage-container" id="collage">
+        <div class="item" data-type="nothing">
+            <img src="/1.JPG" title="That's me!">
+        </div>
+
+        <div class="item" data-type="nothing" data-title="About Me" data-text="">
+            <span style="padding: 10px;">Hi! I'm Eric, a mechanical engineering student at the University of Texas at Austin. Welcome and thanks for visiting!</span>
+        </div>
+
+        <div class="item tall link" data-type="link" data-url="/DBF.html" style="flex-direction: column; display: flex;">
+            <a href="/DBF.html"><img src="/images/DBF-2025-2026/IMG_3599.jpg" title="Wind tunnel testing"></a><div>2025-26 Design Build Fly</div>
+        </div>
+
+        <div class="fixed-size" data-type="nothing">
+            <div id="terminal">
+                <div id="output">System initialized.
+Available commands:
+ - help: Show this message
+ - clear: Clear the terminal
+ - ls: List all pages on this website
+ - github: Redirects to the github link of this page
+ - resume: Redirects to my resume</div>
+                <div class="input-line">
+                    <span class="prompt">user@Portfolio:~$</span>
+                    <input type="text" id="command-input" autofocus autocomplete="off">
+                </div>
+            </div>
+        </div>
+
+        <div class="item link" data-type="link" data-url="/planes.html" style="flex-direction: column; display: flex;">
+            <a href="/planes.html"><img src="/images/first-success/flight.png" title="Shoutout to my friend for launching the plane in this picture!"></a><div>RC (Remote Controlled) Airplanes</div>
+        </div>
+
+
+
+        <div class="item link" data-type="link" data-url="/DBF.html">
+            <a href="/DBF.html"><img src="/images/DBF-2025-2026/IMG_3571.jpg" title="Testing mechanism strength with a load cell"></a>
+        </div>
+
+        <div class="item link" data-type="link" data-url="/planes.html">
+            <a href="/planes.html"><img src="/images/jedelsky/flight.png"></a>
+        </div>
+
+        <div class="item wide link" data-type="/simulations.html" style="flex-direction: column; display: flex;">
+            <a href="/simulations.html"><img src="/images/ALD/loop.webp"></a><div>Atomic Layer Deposition simulations with the University of Shanghai for Science and Technology </div>
+        </div>
+
+
+
+        <div class="item wide link" data-type="link" data-url="/DBF.html">
+            <a href="/DBF.html"><img src="/images/DBF-2025-2026/IMG_3610.png" title="Aerodynamic testing using a car"></a>
+        </div>
+
+
+
+
+
+        <div class="item big link" data-type="/boats.html" style="flex-direction: column; display: flex;">
+            <a href="/boats.html"><img src="/images/boat/IMG_0044.jpg" title="Her name is Oreo by the way"></a><div>RC boats and hydrofoils</div>
+        </div>
+
+        <div class="item wide link" data-type="link" data-url="/simulations.html" style="flex-direction: column; display: flex;">
+            <a href="/simulations.html"><img src="/images/jedelsky/ANSYS/pressure on wing.png" title="simulations"></a><div>ANSYS Simulations</div>
+        </div>
+
+
+
+        <div class="item link" data-type="link" data-url="/planes.html" style="flex-direction: column; display: flex;">
+            <a href="/planes.html"><img src="/images/foam foil/IMG_3766.jpg"></a><div>RC airplane for DBF flight testing</div>
+        </div>
+
+        <!--<div class="item" data-type="nothing">
+            <img src="/valley.JPG" title="some more photography">
+        </div>-->
+
+        <div class="item link" data-type="link" data-url="/simulations.html">
+            <a href="/simulations.html"><img src="/images/jedelsky/ANSYS/deformation-c.png" title="simulations"></a>
+        </div>
+
+        <div class="item link" data-type="link" data-url="/photography.html" data-title="" data-text="" style="flex-direction: column; display: flex;">
+            <img src="/mountain.JPG" title="Mt. Rainier National Park"><div>Check out some of my photography!</div>
+        </div>
+
+        <div class="item big link" data-type="/planes.html">
+            <a href="/planes.html"><img src="/images/cambered plate 2/1.png" title="Shoutout again to my friend holding the plane"></a>
+        </div>
+
+
+
+        <div class="item link" data-type="link" data-url="/DBF.html" style="flex-direction: column; display: flex;">
+            <a href="/DBF.html"><img src="/images/DBF-2025-2026/IMG_3560.jpg" title="DBF 2026 Plane"></a><!--<div>2025-26 Design Build Fly</div>-->
+        </div>
+
+        <div class="item link" data-type="/planes.html">
+            <div style="flex-direction: column; display: flex;"><a href="/planes.html"><img src="/images/older-planes/3/IMG_0306.jpeg" title="I'm REALLY surprised it flew another time after this"></a><p>RC plane crash</p></div>
+        </div>
+
+
+        <!--<div class="item link" data-type="/other.html" style="flex-direction: column; display: flex;">
+            <a href="/other.html"><img src="/images/eyetracking/eyetracking.png"></a><div>Eye tracking project</div>
+        </div>-->
+
+        <div class="item square link" data-type="/DBF.html">
+            <a href="/DBF.html"><img src="/images/DBF-2025-2026/cad1.png" title="CAD Design of a payload carrying mechanism"></a>
+        </div>
+
+        <div class="item square link" data-type="link" data-url="/programming.html" style="flex-direction: column; display: flex;">
+            <a href="/programming.html"><img src="/images/programming/aidetect.png" title="Check out some of my programming projects here"></a><div>Programming Projects</div>
+        </div>
+
+
+
+
+        <!--<div class="item" data-type="nothing" data-title="About Me" data-text="">
+            <span style="padding: 10px;">Github:</span>
+        </div>-->
+        <!--<div class="item link" data-type="popup" data-url="" data-title="" data-text="A deer I photographed in the Pacific Northwest">
+            <img src="/IMG_2040.JPG" title="A deer I photographed in the Pacific Northwest">
+        </div>-->
+
+
+    </div>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2 id="modalTitle">Title</h2>
+            <p id="modalText">Description goes here.</p>
+<!--             <button id="modalBtn">Go to Page</button> -->
+        </div>
+    </div>
+
+    <script>
+        const collage = document.getElementById('collage');
+        const modal = document.getElementById('modalOverlay');
+        const closeModal = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        //const modalBtn = document.getElementById('modalBtn');
+
+        collage.addEventListener('click', (e) => {
+            const item = e.target.closest('.item');
+            if (!item) return;
+
+            const type = item.getAttribute('data-type');
+
+            if (type === 'link') {
+                // Redirect immediately
+                window.location.href = item.getAttribute('data-url');
+            } 
+            else if (type === 'popup') {
+                showPopup(
+                    item.getAttribute('data-title'),
+                    item.getAttribute('data-text'),
+                    item.getAttribute('data-url') || '#' // fallback
+                );
+            }
+            else {console.log("nothing")}
+        });
+
+        function showPopup(title, text, url) {
+            modalTitle.innerText = title;
+            modalText.innerText = text;
+            // modalBtn.onclick = () => {
+            //     window.location.href = url;
+            // };
+            modal.style.display = 'flex';
+        }
+
+        // close the modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+
+    const input = document.getElementById('command-input');
+    const output = document.getElementById('output');
+    const terminal = document.getElementById('terminal');
+
+    const commands = {
+        "help": () => {
+            return "Available commands: \n - help: Show this message\n - clear: Clear the terminal\n - ls: List all pages on this website\n - github: Redirects to the github link of this page\n - resume: Redirects to my resume";
+        },
+        "clear": () => {
+            output.innerHTML = "";
+            return null;
+        },
+        "date": () => {
+            return new Date().toString();
+        },
+        "cat projects.txt": () => {
+            return '<a href="/planes.html">RC Planes</a><br><a href="/DBF.html">UT Design Build Fly</a>';
+        },
+        "cat a.txt": () => {
+            return '<a href="/planes.html">planes</a><br><a href="/planes.html">planes</a>';
+        },
+        "ls": () => {
+            return '<a href="/planes.html">RC Planes</a><br><a href="/DBF.html">UT Design Build Fly</a><br><a href="/boats.html">Boats</a><br><a href="/programming.html">Programming</a><br><a href="/photography.html">Photography</a><br><a href="/simulations.html">Simulations</a><br><a href="/other.html">Other Projects/Experience</a>';
+        },
+        "github": () => {
+            window.location.href = "https://github.com/ericliu637/ericliu637.github.io";
+            return '<span>If you are not redirected, click here: <a href="https://github.com/ericliu637/ericliu637.github.io">github</a></span>';
+        },
+        "resume": () => {
+            window.location.href = "/resume.pdf";
+            return '<span>If you are not redirected, click here: <a href="/resume.pdf">resume</a></span>';
+        }
+    };
+
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const fullCommand = input.value.trim();
+
+            printLine(`user@Portfolio:~$ ${fullCommand}`);
+
+            if (fullCommand !== "") {
+                const cmd = fullCommand.toLowerCase();
+                if (cmd.substring(0, 3)=="cat"){
+                    const validFiles = ["a.txt", "projects.txt"]
+                    if (validFiles.includes(cmd.slice(4))){
+                        let result = commands[cmd]();
+                        printLine(result);
+                    }
+                    else{printLine("File not found", "error")}
+                } else if (commands[cmd]) {
+                    let result = commands[cmd]();
+                    if (result !== null) {
+                        printLine(result);
+                    }
+                } else {
+                    printLine(`Command not found: ${cmd}`, "error");
+                }
+            }
+
+            input.value = "";
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+    });
+
+    terminal.addEventListener('click', function() {input.focus();})
+
+    function printLine(text, className = "") {
+        const line = document.createElement('div');
+        if (className) line.className = className;
+        line.innerHTML = text;
+        output.appendChild(line);
+    }
+    </script>
+</body>
+</html>

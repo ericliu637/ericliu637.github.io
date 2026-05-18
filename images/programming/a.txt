@@ -1,0 +1,2 @@
+put on github: automatic desktop setup for arch linux
+AUR helper

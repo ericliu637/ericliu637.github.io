@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UT DBF</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: visible;
+        }
+
+        header {
+            padding: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { margin-bottom: 0; color: #111; }
+        header p { color: #555; }
+
+        nav {
+            height: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        p {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            width: 50%;
+            margin: 0 auto;
+            height: auto;
+            display: block;
+        }
+
+        figcaption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #333#;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+
+
+        .grid-container1 {
+            display: grid;
+            grid-template-columns: 65% 35%;
+            max-width: 80vw;
+            gap: 20px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .grid-container1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-container2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 60vw;
+            margin: 0 auto;
+        }
+
+        .grid-container2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-item {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .caption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+        <h1>DBF</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Projects ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/planes.html">RC Airplanes</a></li>
+                        <li><a href="/boats.html">RC Boats</a></li>
+                        <li><a href="/DBF.html">Design Build Fly</a></li>
+                        <li><a href="/programming.html">Programming</a></li>
+                        <li><a href="/photography.html">Photography</a></li>
+                        <li><a href="/simulations.html">Simulations</a></li>
+                        <li><a href="/other.html">Other</a></li>
+                    </ul>
+                </li>
+
+                <!--<li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <p>When I first arrived at UT Austin, I started looking for student organizations to join. My passion for aircraft and flight led me to the Design Build Fly (DBF) team. In particular, I worked on the systems team, in charge of payloads, internal mechanisms, and other odd jobs that didn't fit neatly into the scope of the other sub-teams. That year, the competition mission was to build an aircraft that could carry a large amount of payload as fast as possible, in addition to carrying a lightweight autonomous glider that could be dropped from the main aircraft.</p>
+
+    <p>My first year at DBF, I helped create a quick-attach pylon system that held 30 lbs of weight during flight. In addition, I created electronics for an ultra-lightweight glider. Through weeks of iterative design, I was eventually able to bring the weight of the glider below 18 grams.</p>
+
+    <!--<figure>
+        <img src="/IMG_2040.JPG" alt="x1">
+        <figcaption>glider</figcaption>
+    </figure>-->
+
+    <p>During my second year in DBF, I became systems co-lead. In this leadership role, I led and mentored 20 team members to design, test, and manufacture internal systems. Beyond technical oversight, I strongly focused on organizational growth and culture. By providing a hands on and collaborative team environment, I was able to successfully increase member retention by 50% compared to the previous year.</p>
+
+    <p> This time, the competition mission involved deploying and towing a banner during flight. To help guide the design process, the team needed to know the amount of drag the banner produced. I led a team to conduct tests that would measure this data, as well as determine other important characteristics of banners in flight.</p>
+
+    <p>Since the data from these tests would determine the final dimensions of the plane, the tests had to initially be conducted inside of a wind tunnel. This produced some valuable data, and allowed me to determine the ideal banner material as well as a loose relationship between banner length and drag. It also allowed me to determine the necessary weight needed at the bottom of the banner to keep it upright during flight.</p>
+
+    <figure>
+        <img src="/images/DBF-2025-2026/IMG_35991.jpg" alt="">
+        <figcaption>wind tunnel testing</figcaption>
+    </figure>
+
+    <figure>
+        <div class="grid-container2">
+            <img src="/images/DBF-2025-2026/36in pink.png">
+            <img src="/images/DBF-2025-2026/36in green.png">
+            <img src="/images/DBF-2025-2026/60in pink.png">
+            <img src="/images/DBF-2025-2026/84in pink.png">
+        </div>
+        <figcaption>Graphs showing relationship between drag and airspeed in a wind tunnel</figcaption>
+    </figure>
+
+    <p>The wind tunnel tests provided valuable data, but as the data rolled in, we realized the expected drag we were using in our aerodynamic analysis previously was wrong. Instead of a 60 inch banner, the tests showed that the final length of the banner would be closer to 140 inches. Since we couldn't fit such a large banner inside our wind tunnel, we decided to test the banner by flying it out the side of a car. For these tests, I assembled a testing rig with a load cell to measure drag and a pitot tube to measure airspeed. By attaching the banner to the load cell, and driving at a range of speeds, I was able to collect data on drag at different airspeeds, just like in the wind tunnel.</p>
+
+    <p><div class="grid-container1">
+        <div class="grid-item">
+            <img src="/images/DBF-2025-2026/IMG_3525.jpg">
+            <div class="caption">Car testing</div>
+        </div>
+        <div class="grid-item">
+            <img src="/images/DBF-2025-2026/IMG_3588.webp">
+            <p class="caption">Testing rig held outside the car, showing a load cell and pitot tube. Not my prettiest work, but it held up at 65 mph.</p>
+        </div><br><br>
+    </div></p>
+
+    <p>I also led efforts to design the mechanism that would deploy the banner during flight. Real banner towing aircraft take off without the banner and use a hook to lift a banner laid flat on the ground into the air after takeoff, but for this competition, the banner was required to be attached to the plane during takeoff. During initial testing, we ran into issues with the banner failing to unroll.</p>
+
+    <figure>
+        <img src="/images/DBF-2025-2026/rolled.png" alt="">
+        <figcaption>towing a still rolled up banner</figcaption>
+    </figure>
+
+    <p>After numerous modifications to the design of the banner's rigging, changing the design of the deployment mechanisms, and experimentation with different methods of rolling the banner, eventually, we were able achieve near perfect reliability when deploying the banner from the plane, without the same tangling or ripping issues which were common on earlier designs.</p>
+
+    <figure>
+        <img src="/images/DBF-2025-2026/IMG_3911.webp" alt="">
+        <figcaption>successful deployment</figcaption>
+    </figure>
+
+    <p>With how tight the manufacturing and testing schedule was, I realized the team needed to fly much more often. But with other sub-teams integrating components and working on their portions of the airplane, as well as our main pilot's availability, it was difficult to fly more often with the competition aircraft. Luckily, not all tests needed to be conducted with the competition aircraft, such as those testing if a banner would unroll reliably during flight, or flights which measured banner drag. I designed a custom RC airplane dedicated to testing banners, equipped with a load cell to measure drag and cameras to record the banner as it dropped. Unfortunately, it was completed a little too late to actually be used before competition.</p>
+
+    <figure>
+        <img src="/images/foam foil/IMG_3766.jpg" alt="">
+        <figcaption>dedicated testing aircraft</figcaption>
+    </figure>
+
+    <p>Joining UT's DBF team gave me a lot of experience, which also helped in building my own <a href="/planes.html">RC airplanes</a> outside of DBF. Eventually, I learned how to use <a href="/CFD.html">computer simulations</a> and software such as XFLR5 and ANSYS to design aircraft. DBF also taught me a lot about engineering in general, including CAD, FEA, and many pieces of advice about design I would have never otherwise learned. But beyond improving my knowledge in aircraft design, serving as a team co-lead has improved my skills in team organization, cross-team communication, planning events, and more.</p>
+
+    <br><br><br><br>
+
+</body>
+</html>

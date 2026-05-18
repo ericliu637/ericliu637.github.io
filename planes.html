@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC Airplanes</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: visible;
+        }
+
+        header {
+            padding: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { margin-bottom: 0; color: #111; }
+        header p { color: #555; }
+
+        nav {
+            height: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        p {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            width: 50%;
+            margin: 0 auto;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        figcaption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+        <h1>RC Airplanes</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Projects ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/planes.html">RC Airplanes</a></li>
+                        <li><a href="/boats.html">RC Boats</a></li>
+                        <li><a href="/DBF.html">Design Build Fly</a></li>
+                        <li><a href="/programming.html">Programming</a></li>
+                        <li><a href="/photography.html">Photography</a></li>
+                        <li><a href="/simulations.html">Simulations</a></li>
+                        <li><a href="/other.html">Other</a></li>
+                    </ul>
+                </li>
+
+                <!--<li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <p>
+        I first started building RC airplanes in 2022. At first, I wasn't very good at building them. As time went on, I incorporated lessons from each failure and gradually improved my skills. Below are some of the first few planes that I built. The first one didn't even fly.
+    </p>
+
+    <figure>
+        <img src="/images/older-planes/1/IMG_20230523_184402921.webp">
+        <figcaption></figcaption>
+    </figure>
+
+    <p>Eventually, once I got the basic principles of making a plane fly down, such as correct placement of the center of gravity, angling the horizontal stabilizer correctly relatively to the wing, and not overbuilding the plane with a ludicrously high wing loading, I was able to get somewhat of a first successful flight down.</p>
+
+    <figure>
+        <img src="/images/older-planes/2/1.png">
+        <figcaption>My friend got really into vintage tech around this time, and he recorded this on VHS.</figcaption>
+    </figure>
+
+    <p>Of course, with my amazing pilot skills and my 0 hours of flight experience, I was too scared to fully use the throttle for fear that the plane would go too fast and I wouldn't be able to react in time to control it. This just ended up making the plane underpowered, and my first flight lasted barely 20 seconds before I crashed it into a tree.</p>
+
+    <p>From my first plane to the first (real) successful flight, numerous construction techniques, airfoils, and designs were tested. For example, I tried creating a plane that would be appropriately sized for the amount of power the motor had, along with a special airfoil meant for extremely low speed flight. Since the airfoil could be approximated by a simple bent plate, it was much eaiser to build than my previous designs. The wingspan of 6 feet was selected as being twice the length of the foam boards I used to build all my planes up until this point. With all these improvements, I hoped that this plane would be a lot easier to control than the other planes I made in the past. </p>
+
+    <figure>
+        <img src="/images/cambered plate 2/1.png">
+        <figcaption></figcaption>
+    </figure>
+
+    <p>Unfortunately, that prediction turned out to not be so accurate, and I ended up crashing immediately. It turns out that the special low Reynolds number airfoil I had selected was not very compatible with the massive size of the airplane and the low strength of the material it was made of. Upon recovering the wreckage from the first crash, I realized that the wings had bent inwards during flight, and I realized why engineers conduct static load tests of real aircraft before flying. From there, I decided it was a better idea to explore a similar concept with a smaller plane that wouldn't immediately collapse the wing under the aerodynamic stresses of flight.</p>
+
+    <figure>
+        <img src="/images/cambered plate 1/puddle.png">
+        <figcaption>A wild plane in its natural habitat, taking a sip of water in the watering hole</figcaption>
+    </figure>
+
+    <p>The week after the failure of the previous cambered-plate wing plane, I learned another very important lesson: airplanes don't like water. Initially, based on my experience with flying the previous plane, I thought that any airplane with such an airfoil, especially one with such a low wing loading, would require very little throttle to fly. On it's first flight, I barely had any throttle on when the plane took off. This turned out to be a mistake, as the plane slowly glided into a puddle. On it's second flight, with every surface thoroughly soaked, the weight of the water completely changed the center of gravity, and the plane sharply rolled to the right and nosedived into the ground right after takeoff.</p>
+
+    <p>Simultaneously to conducting my experiments with low speed airfoils, I was also working on perfecting my more conventional designs. I varied almost everything I could able the designs, from the way I reinforced wings, to the material the tail boom was made out of. Initially, most of my planes used wooden dowels to connect the tail to the fuselage. This would often break, leading me to explore using carbon fiber arrow shafts. Below are some of the iterations I made along the way.</p>
+
+    <figure>
+        <img src="/images/older-planes/3/1.png">
+        <figcaption></figcaption>
+    </figure>
+
+    <figure>
+        <img src="/images/older-planes/3/b.png">
+        <figcaption></figcaption>
+    </figure>
+
+    <figure>
+        <img src="/images/older-planes/3/IMG_0310.jpeg">
+        <figcaption>3rd crash. It didn't get to fly another time after this one :(</figcaption>
+    </figure>
+
+
+    <p>After months of research on both design and piloting, I was able to fly a plane successfully.</p>
+    <figure>
+        <img src="/images/first-success/plane.png">
+        <figcaption></figcaption>
+    </figure>
+
+    <figure>
+        <img src="/images/first-success/flight.png">
+        <figcaption>First (real) successful flight</figcaption>
+    </figure>
+
+    <p>Joining UT's <a href="/DBF.html">DBF</a> team really helped me in designing aircraft. For example, I learned how to use <a href="/CFD.html">computer simulations</a> and software such as XFLR5 and ANSYS to design aircraft.</p>
+
+    <p>Eventually, I decided to revisit my attempts at creating an extremely slow flying plane from earlier, this time having learned a lot more about not letting foam board, electronics, and water mix. In addition, while almost every one of my previous designs have designed based entirely off of experience, online literature, and experimentation, I decided to start this design from scratch with an entirely simulation based design approach.</p>
+
+    <p>I started off by modeling different low-speed airfoils in XFLR5. Although simulations showed that the cambered plate I used on the previous two attempts produced the highest maximum coefficient of lift out of all low speed foils I simulated, I realized that creating a bent plate that was strong enough to withstand aerodynamic forces was more difficult than I realized. Eventually, I landed on a relatively obscure series of airfoils called Jedelsky foils, mostly for its ease of construction. I also verified the results from XFLR5 in ANSYS, both to check the aerodynamic results and to ensure that the wing would not break during flight. Then, I sized the stabilizers and wings using XFLR5.</p>
+
+    <figure>
+        <img src="/images/jedelsky/IMG_1583.jpg">
+        <figcaption>Jedelsky Foil</figcaption>
+    </figure>
+
+    <figure>
+        <img src="/images/jedelsky/ANSYS/deformation.png">
+        <figcaption>ANSYS simulation</figcaption>
+    </figure>
+
+    <figure>
+        <img src="/images/jedelsky/ANSYS/xflr5.webp">
+        <figcaption>XFLR5 simulation</figcaption>
+    </figure>
+
+    <p>This time, it flew almost perfectly, and very slowly too. In this particular image, I used it to test dropping a small banner for <a href="/DBF.html">DBF</a>, which is visible in its undeployed state under the fuselage, behind the trailing edge of the wing.</p>
+
+    <figure>
+        <img src="/images/jedelsky/flight.png">
+        <figcaption></figcaption>
+    </figure>
+
+    <br><br><br><br>
+
+</body>
+</html>

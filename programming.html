@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: visible;
+        }
+
+        header {
+            padding: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { margin-bottom: 0; color: #111; }
+        header p { color: #555; }
+
+        nav {
+            height: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        p {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            width: 50%;
+            margin: 0 auto;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        figcaption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+        <h1>Programming projects</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Projects ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/planes.html">RC Airplanes</a></li>
+                        <li><a href="/boats.html">RC Boats</a></li>
+                        <li><a href="/DBF.html">Design Build Fly</a></li>
+                        <li><a href="/programming.html">Programming</a></li>
+                        <li><a href="/photography.html">Photography</a></li>
+                        <li><a href="/simulations.html">Simulations</a></li>
+                        <li><a href="/other.html">Other</a></li>
+                    </ul>
+                </li>
+
+                <!--<li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <p>Here's some of my programming projects!</p>
+
+    <figure>
+        <img src="/images/programming/aidetect.png" alt="">
+        <figcaption>AI Detector</figcaption>
+    </figure>
+
+    <p>Most AI detection tools are online services, which often comes with privacy concerns. To address this, I decided to write a local-first AI detection tool that uses a small (~2B parameters) LLM to analyze text. It compares the output from the LLM to the input text and outputs a similarity. If the similarity is too high, it classifies it as AI text. In testing, I was able to achieve 90% accuracy.</p>
+
+    <figure>
+        <img src="/images/programming/aurhelper.png" alt="">
+        <figcaption>AUR helper</figcaption>
+    </figure>
+
+    <p>I've been using Linux instead of Windows for a while now, and to help me better understand Linux, I decided to write a helper script for the arch linux package manager, pacman. Pacman already has a number of helper scripts and wrappers that automate the process of installing packages manually from the user uploaded repository (AUR), but I wanted to gain a better understanding of Linux and I also felt that some of those existing solutions were overkill. One of the challenges of installing a package manually from the AUR is if the package depends on another package from AUR, which must then be manually installed too. This loop of dependencies needing manual installation can get quite annoying in some cases. This script fixed that issue and added some other quality of life features.</p>
+
+    <figure>
+        <img src="/images/programming/skyward1.png" alt="">
+        <figcaption>Skyward GPA Calculator</figcaption>
+    </figure>
+
+    <figure>
+        <img src="/images/programming/skyward3.png" alt="">
+        <figcaption>Dark Mode</figcaption>
+    </figure>
+
+    <p>Back when I was in highschool, my school used a grading system called Skyward. I built a Chrome extension to improve the Skyward user interface. I engineered several key features, including a GPA calculator and a way to track grades over time. Beyond the initial development, I managed the deployment and user base, growing the extension to over 100 active users, and bringing other team members on to develop other features such as a dark theme. This role required me to act as both a developer and provide technical assistance to users, iterating the extension based on direct feedback.</p>
+
+    <br><br>
+
+</body>
+</html>
