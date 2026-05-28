@@ -123,7 +123,7 @@
                         <li><a href="/programming.html">Programming</a></li>
                         <li><a href="/photography.html">Photography</a></li>
                         <li><a href="/simulations.html">Simulations</a></li>
-                        <li><a href="/other.html">Other</a></li>
+<!--                         <li><a href="/other.html">Other</a></li> -->
                     </ul>
                 </li>
 
@@ -140,7 +140,7 @@
         <figcaption>AI Detector</figcaption>
     </figure>
 
-    <p>Most AI detection tools are online services, which often comes with privacy concerns. To address this, I decided to write a local-first AI detection tool that uses a small (~2B parameters) LLM to analyze text. It compares the output from the LLM to the input text and outputs a similarity. If the similarity is too high, it classifies it as AI text. In testing, I was able to achieve 90% accuracy.</p>
+    <p>Most AI detection tools are online services, which often comes with privacy concerns. To address this, I decided to write a local-first AI detection tool that uses a small (~2B parameters) LLM to analyze text. It compares the output from the LLM to the input text and outputs a similarity. If the similarity is too high, it classifies it as AI text. In testing, I was able to achieve 95% accuracy.</p>
 
     <figure>
         <img src="/images/programming/aurhelper.png" alt="">
@@ -148,6 +148,8 @@
     </figure>
 
     <p>I've been using Linux instead of Windows for a while now, and to help me better understand Linux, I decided to write a helper script for the arch linux package manager, pacman. Pacman already has a number of helper scripts and wrappers that automate the process of installing packages manually from the user uploaded repository (AUR), but I wanted to gain a better understanding of Linux and I also felt that some of those existing solutions were overkill. One of the challenges of installing a package manually from the AUR is if the package depends on another package from AUR, which must then be manually installed too. This loop of dependencies needing manual installation can get quite annoying in some cases. This script fixed that issue and added some other quality of life features.</p>
+
+    <p>Another Linux project I worked on was an automatic post-installation setup script. After having to reinstall my system multiple times to fix issues, I decided to create a script that would install apps, change settings, and download files from a backup server.</p>
 
     <figure>
         <img src="/images/programming/skyward1.png" alt="">

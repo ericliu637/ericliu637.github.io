@@ -102,6 +102,22 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+
+
+        .grid-container2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            gap: 10px;
+            max-width: 60vw;
+            margin: 0 auto;
+        }
+
+        .grid-container2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -123,7 +139,7 @@
                         <li><a href="/programming.html">Programming</a></li>
                         <li><a href="/photography.html">Photography</a></li>
                         <li><a href="/simulations.html">Simulations</a></li>
-                        <li><a href="/other.html">Other</a></li>
+<!--                         <li><a href="/other.html">Other</a></li> -->
                     </ul>
                 </li>
 
@@ -140,11 +156,7 @@
         <figcaption>Boat</figcaption>
     </figure>
 
-    <p>O</p>
-
-    <p>Once I got the basic function of the boat to work, I took inspiration</p>
-
-    <p>When I built the boat, there was an internet trend where people would take magnets out to lakes and rivers and "fish" for items on the riverbed. I decided that this boat was the perfect platform to put a crane on, so I could put a camera on it and take pictures of what was underwater. Then, once I found something, I would remove the camera and replace it with a magnet that could bring whatever I found up from the bottom.</p>
+    <p>Around the time I built the boat, there was an internet trend where people would take magnets out to lakes and rivers and "fish" for items on the riverbed. I decided that this boat was the perfect platform to put a crane on, so I could put a camera on it and take pictures of what was underwater. Then, once I found something, I would remove the camera and replace it with a magnet that could bring whatever I found up from the bottom.</p>
 
     <figure>
         <img src="/images/boat/IMG_20231028_183649976.jpg" alt="electronics">
@@ -153,14 +165,33 @@
 
     <p>Modifying the electronics to acommodate for the crane turned out to be much more challenging and more interesting than expected. Initially, I use only one ESP-8266 microcontroller. However, since the microcontroller was controlling both the rotation of the crane lift motor and the throttle at the same time, it would seize up occasionally. Eventually, I discovered that the stepper motor library I was using caused the microcontroller to pause all other running code and focus entirely on driving the stepper motor.</p>
 
-    <p>What I needed was multithreading, but the ESP-8266 did not support microthreading, and I was on a rush to get the project done without needing to order more parts. Instead, I simply chained 2 microcontrollers together. The primary microcontroller handled recieving inputs from the reciever, rudder, and throttle, which all could be done on a single thread without interrupting each other's function. A second microcontroller was dedicated solely to driving the stepper motor. Whenever the main microcontroller recieved an input to raise/lower the crane, the main microcontroller would send an interrupt to the other microcontroller along with some information about how much the motor needed to turn.</p>
+    <p>What I needed was multithreading, but the ESP-8266 did not support multithreading, and I was on a rush to get the project done without needing to order more parts. Instead, I simply chained 2 microcontrollers together. The primary microcontroller handled recieving inputs from the reciever, rudder, and throttle, which all could be done on a single thread without interrupting each other's function. A second microcontroller was dedicated solely to driving the stepper motor. Whenever the main microcontroller recieved an input to raise/lower the crane, the main microcontroller would send an interrupt to the other microcontroller along with some information about how much the motor needed to turn.</p>
+
+    <p>Additionally, supplying power to every electronic system on the boat proved to be more challenging than expected. Both the propulsion motor and the crane motor required 12 volts, while the microcontrollers ran on 3.3, and the receiver needed 7 volts. After attempting to use a single 12 volt battery and step down the voltages to the required amount for the controls, I ended up simply adding 2 more batteries.</p>
+
+
+
+    <figure>
+        <img src="/images/boat/boat.jpg" alt="boat">
+        <figcaption>Boat showing a clearer picture of the crane and attached camera.</figcaption>
+    </figure>
+
+    <figure>
+        <div class="grid-container2">
+            <img src="/images/boat/IMG_0095.jpg">
+            <img src="/images/boat/IMG_0097.jpg">
+        </div>
+        <figcaption>Crane and camera module</figcaption>
+    </figure>
+
+
+
+    <p>So how did the images turn out from the camera? Yep, that's right, you can't see anything underwater. I thought of putting a flashlight underwater with the camera, but I realized that lighting wasn't the issue. The issue instead was that condensation would form on the inside of the glass jar I used, causing the image to come out blurry even in shallow waters (where this image was taken)</p>
 
     <figure>
         <img src="/images/boat/bruh.png" alt="very blurry underwater photo">
         <figcaption>Picture I took underwater</figcaption>
     </figure>
-
-    <p>So how did the images turn out from the camera? Yep, that's right, you can't see anything underwater. I thought of putting a flashlight underwater with the camera, but I realized that lighting wasn't the issue. The issue instead was that condensation would form on the inside of the glass jar I used, causing the image to come out blurry even in shallow waters (where this image was taken)</p>
 
     <!--<figure>
         <img src="/images/boat/" alt="a">
