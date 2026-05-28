@@ -259,7 +259,7 @@
                         <li><a href="/programming.html">Programming</a></li>
                         <li><a href="/photography.html">Photography</a></li>
                         <li><a href="/simulations.html">Simulations</a></li>
-<!--                         <li><a href="/other.html">Other</a></li> -->
+                        <li><a href="/other.html">Other</a></li>
 
                         <!--<hr style="border: 0; border-top: 1px solid #eee; margin: 5px 0;">
                         <li><a href="#all-projects">View All</a></li>-->
@@ -293,7 +293,9 @@ Available commands:
  - clear: Clear the terminal
  - ls: List all pages on this website
  - github: Redirects to the github link of this page
- - resume: Redirects to my resume</div>
+ - resume: Redirects to my resume
+ - linkedin: Redirects to my LinkedIn
+ - contact: Prints my contact information</div>
                 <div class="input-line">
                     <span class="prompt">user@Portfolio:~$</span>
                     <input type="text" id="command-input" autofocus autocomplete="off">
@@ -339,8 +341,8 @@ Available commands:
 
 
 
-        <div class="item link" data-type="link" data-url="/planes.html" style="flex-direction: column; display: flex;">
-            <a href="/planes.html"><img src="/images/foam foil/IMG_3766.jpg"></a><div>RC airplane for DBF flight testing</div>
+        <div class="item link" data-type="link" data-url="/DBF.html" style="flex-direction: column; display: flex;">
+            <a href="/DBF.html"><img src="/images/foam foil/IMG_3766.jpg"></a><div>RC airplane for DBF flight testing</div>
         </div>
 
         <!--<div class="item" data-type="nothing">
@@ -369,17 +371,22 @@ Available commands:
             <div style="flex-direction: column; display: flex;"><a href="/planes.html"><img src="/images/older-planes/3/IMG_0306.jpeg" title="I'm REALLY surprised it flew another time after this"></a><p>RC plane crash</p></div>
         </div>
 
+        <div class="item square link" data-type="link" style="flex-direction: column; display: flex;">
+            <a href="/other.html"><img src="/images/other/chessbot.png" title="Some of my other projects"></a><div>Other Projects</div>
+        </div>
+
+        <div class="item square link" data-type="link" data-url="/programming.html" style="flex-direction: column; display: flex;">
+            <a href="/programming.html"><img src="/images/programming/aidetect.png" title="Check out some of my programming projects here"></a><div>Programming Projects</div>
+        </div>
+
+
 
         <!--<div class="item link" data-type="/other.html" style="flex-direction: column; display: flex;">
             <a href="/other.html"><img src="/images/eyetracking/eyetracking.png"></a><div>Eye tracking project</div>
         </div>-->
 
-        <div class="item square link" data-type="/DBF.html">
+        <div class="item wide link" data-type="/DBF.html">
             <a href="/DBF.html"><img src="/images/DBF-2025-2026/cad1.png" title="CAD Design of a payload carrying mechanism"></a>
-        </div>
-
-        <div class="item square link" data-type="link" data-url="/programming.html" style="flex-direction: column; display: flex;">
-            <a href="/programming.html"><img src="/images/programming/aidetect.png" title="Check out some of my programming projects here"></a><div>Programming Projects</div>
         </div>
 
 
@@ -471,8 +478,8 @@ Available commands:
             return '<a href="/planes.html">planes</a><br><a href="/planes.html">planes</a>';
         },
         "ls": () => {
-            return '<a href="/planes.html">RC Planes</a><br><a href="/DBF.html">UT Design Build Fly</a><br><a href="/boats.html">Boats</a><br><a href="/programming.html">Programming</a><br><a href="/photography.html">Photography</a><br><a href="/simulations.html">Simulations</a><br>';
-            //return '<a href="/planes.html">RC Planes</a><br><a href="/DBF.html">UT Design Build Fly</a><br><a href="/boats.html">Boats</a><br><a href="/programming.html">Programming</a><br><a href="/photography.html">Photography</a><br><a href="/simulations.html">Simulations</a><br><a href="/other.html">Other Projects/Experience</a>';
+            // return '<a href="/planes.html">RC Planes</a><br><a href="/DBF.html">UT Design Build Fly</a><br><a href="/boats.html">Boats</a><br><a href="/programming.html">Programming</a><br><a href="/photography.html">Photography</a><br><a href="/simulations.html">Simulations</a><br>';
+            return '<a href="/planes.html">RC Planes</a><br><a href="/DBF.html">UT Design Build Fly</a><br><a href="/boats.html">Boats</a><br><a href="/programming.html">Programming</a><br><a href="/photography.html">Photography</a><br><a href="/simulations.html">Simulations</a><br><a href="/other.html">Other Projects/Experience</a>';
         },
         "github": () => {
             window.location.href = "https://github.com/ericliu637/ericliu637.github.io";
@@ -481,6 +488,13 @@ Available commands:
         "resume": () => {
             window.location.href = "/resume.pdf";
             return '<span>If you are not redirected, click here: <a href="/resume.pdf">resume</a></span>';
+        },
+        "contact": () => {
+            return 'Contact me at <a href="mailto:ericliu637@gmail.com">ericliu637@gmail.com</a>!';
+        },
+        "linkedin": () => {
+            window.location.href = "https://www.linkedin.com/in/eric-r-liu/";
+            return '<span>If you are not redirected, click here: <a href="https://www.linkedin.com/in/eric-r-liu/">resume</a></span>';
         }
     };
 
