@@ -133,10 +133,10 @@
         </nav>
     </header>
 
-    <p>I initially started using CFD to help design my RC aircraft. I wanted to use a special type of low speed airfoil called a Jedelsky foil, because people online claimed it worked really well for small model gliders. It also was relatively easy to build with the construction technique I used, but there wasnt anything online about how this airfoil actually performed.</p>
+    <p>I initially started using CFD to help design my RC aircraft. I wanted to use a special type of low speed airfoil called a Jedelsky foil, because people online claimed it worked really well for small model gliders. It also was relatively easy to build with the construction technique I used, but there wasnt any data or simulation results online about how this airfoil actually performed.</p>
 
     <figure>
-        <img src="/images/jedelsky/IMG_1583.jpg">
+        <img src="/images/jedelsky/IMG_1583-1.jpg">
         <figcaption>Jedelsky Foil</figcaption>
     </figure>
 
@@ -152,22 +152,39 @@
         <figcaption>XFLR5 simulation</figcaption>
     </figure>
 
-    <p>I also decided to run a fluid structure interaction simulation to see if the wing could withstand aerodynamic forces during flight.</p>
+    <p>The results showed that XFLR5 was close enough to the ANSYS simulations (at least for an angle of attack between -5 to 15 degrees), proving that I could continue using XFLR5 for the rest of my aircraft design. I also decided to run a fluid structure interaction simulation to see if the wing could withstand aerodynamic forces during flight.</p>
 
     <figure>
         <img src="/images/jedelsky/ANSYS/deformation.png">
         <figcaption>Fluid-structure interation</figcaption>
     </figure>
 
+    <p>The conclusion of this simulation was that the expected stress on the wing was far lower than what was required to break foam board. </p>
 
-    <p>Later I found a research opportunity at the University of Shanghai for Science and Technology, doing CFD simulations of various objects inside an atomic layer deposition chamber that was designed for silicon wafers. While coating flat silicon wafers using atomic layer deposition is easy because gas flows evenly over a flat plate, we had to coat objects such as spheres. This would introduce problems such as flow seperation around the objects leading to spots with inconsistent coating. I moved the objects around and varied the geometry of the chamber to get even airflow and speed up manufacturing time.</p>
+
+    <p>Later I found a research opportunity at the University of Shanghai for Science and Technology, doing CFD simulations of various objects inside an atomic layer deposition (ALD) chamber that was designed for silicon wafers. While coating flat silicon wafers using atomic layer deposition is easy because gas flows evenly over a flat plate, we had to coat objects such as spheres. This would introduce problems such as flow seperation around the objects leading to spots with inconsistent coating. I tried different object placement arrangements and varied the geometry of the chamber to get even airflow and speed up manufacturing time.</p>
+
+    <figure>
+        <img src="/images/ALD/large.webp">
+        <figcaption>Simulated TMA gas pulse through a reaction chamber</figcaption>
+    </figure>
+
+    <p>One of the biggest challenges with simulating an ALD process are the number of factors which impact layer height and quality as well as manufacturing cost and speed, which creates a huge number of simulations if one were to try every single combination. The relative lack of open data for certain parameters in some types of ALD setups means that some simulations were also conducted to verify the effect of these parameters on quality in simulation. Since I was designing a manufacturing process entirely from scratch, this meant hundreds of different configurations across different ALD machines, object placement inside of those mahcines, as well as flow rates and injection timing. The solution to this was to use design of experiments. Using a fractional factorial experimental design meant that I could isolate out the effects of individual factors without having to run hundreds of experiments.</p>
+
+    <p>I also analyzed which factors contributed the most to the economics of running such a process. As I was designing a manufacturing process, I needed to ensure that a manufacturing process using a similar setup could be profitable. I eventually came to the conclusion that the cost of TMA was the most expensive part of the process by far, meaning that reducing TMA usage was far more important than saving manufacturing time as long as the manufacturing time stayed under one worker's shift (which it was well under for every configuration I simulated). This guided the experimental design process and allowed me to optimize the process for the correct response variable.</p>
+
+    <p>My conclusion from these simulations was that chamber geometry and object placement mattered far less than the initial concentration of precursors and which specific precursors were used. This is mainly because the simulations were all for a flow regime where pressure was extremely low, meaning that precursors would diffuse into the carrier gas much faster than the carrier gas itself flowed inside the chamber. In these kinds of conditions, even if gas flow is not entirely optimal, diffusion would allow the gasses to still evenly reach all parts of the object.</p>
 
     <figure>
         <img src="/images/ALD/loop.webp">
-        <figcaption>Simulated TMA gas pulse</figcaption>
+        <figcaption>Small reaction chamber configuration. This was discarded in favor of a much larger chamber originally meant for the mass production of solar panels</figcaption>
     </figure>
 
-    <img src="https://ericliu637.goatcounter.com/count?p=/simulations">
+    <p>Another interesting result from my research was that that commonly used trimethyl aluminum (TMA) + water process was much more susceptible to gas flow velocity over the object than other processes, meaning that even if diffusion allowed the precursors to evenly coat the entire surface of an object, gas flow velocity which is too high or low can still cause non-ideal behavior. For this reason, I recommended a switch to using ozone as a precursor instead of water.</p>
+
+
+
+<!--     <img src="https://ericliu637.goatcounter.com/count?p=/simulations"> -->
 
 <!--     <img src="http://129.146.253.211/public/portfolio/simulations.png" style="position:absolute; top:-9999px; left:-9999px; width:0; height:0; border:0;"> -->
 
