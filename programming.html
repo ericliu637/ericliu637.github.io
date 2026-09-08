@@ -102,6 +102,12 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+
+        h3 {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -119,6 +125,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="/planes.html">RC Airplanes</a></li>
                         <li><a href="/boats.html">RC Boats</a></li>
+                        <li><a href="/robotics-mechatronics.html">Robotics and Mechatronics</a></li>
                         <li><a href="/DBF.html">Design Build Fly</a></li>
                         <li><a href="/programming.html">Programming</a></li>
                         <li><a href="/photography.html">Photography</a></li>
@@ -133,23 +140,29 @@
         </nav>
     </header>
 
-    <p>Here's some of my programming projects!</p>
+<!--     <h3>Here's some of my programming projects!</h3> -->
+
+    <h3>AI Detector</h3>
 
     <figure>
         <img src="/images/programming/aidetect.png" alt="">
-        <figcaption>AI Detector</figcaption>
+<!--         <figcaption>AI Detector</figcaption> -->
     </figure>
 
     <p>Most AI detection tools are online services, which often comes with privacy concerns. To address this, I decided to write a local-first AI detection tool that uses a small (~2B parameters) LLM to analyze text. It compares the output from the LLM to the input text and outputs a similarity. If the similarity is too high, it classifies it as AI text. In testing, I was able to achieve 95% accuracy.</p>
 
+    <h3>Linux Package Dependency Checking in a Bash Script</h3>
+
     <figure>
         <img src="/images/programming/aurhelper.png" alt="">
-        <figcaption>AUR helper</figcaption>
+<!--         <figcaption>AUR helper</figcaption> -->
     </figure>
 
-    <p>Another project I worked on is a Linux package installation helper script. After switching from windows to Linux, I decided to start a project to help me better understand the system by writing a helper script for the Arch Linux package manager, <em>pacman</em>. Arch Linux already has a number of helper scripts and wrappers that automate the process of installing packages manually from the community-run Arch user repository (AUR), but I wanted to build one that was lightweight and simple. One of the challenges of installing a package manually from the AUR is if the package depends on another package from AUR, which must then be manually installed too. This script fixed that issue and added some other quality of life features.</p>
+    <p>Another project I worked on is a Linux package installation helper script. After switching from Windows to Linux, I decided to start a project to help me better understand the system by writing a helper script for the Arch Linux package manager, <em>pacman</em>. Arch Linux already has a number of helper scripts and wrappers that automate the process of installing packages manually from the community-run Arch user repository (AUR), but I wanted to build one that was lightweight and simple. One of the challenges of installing a package manually from the AUR is if the package depends on another package from AUR, which must then be manually installed too. This script fixed that issue and added some other quality of life features.</p>
 
     <p>Another Linux project I worked on was an automatic post-installation setup script. After having to reinstall my system multiple times to fix issues, I decided to create a script that would install apps, change settings, and download files from a backup server.</p>
+
+    <h3>Gradebook System UI Rework</h3>
 
     <figure>
         <img src="/images/programming/skyward1.png" alt="">

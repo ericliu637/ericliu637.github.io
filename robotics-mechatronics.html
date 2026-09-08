@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics and Mechatronics</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: visible;
+        }
+
+        header {
+            padding: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { margin-bottom: 0; color: #111; }
+        header p { color: #555; }
+
+        nav {
+            height: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            z-index: 100;
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 4px;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        .grid-container2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 90vw;
+            margin: 0 auto;
+        }
+
+        .grid-container2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-container3 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 90vw;
+            margin: 0 auto;
+        }
+
+        .grid-container3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .caption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 3px;
+        }
+
+        p {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            width: 50%;
+            margin: 0 auto;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        figcaption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+        <h1>Robotics, Mechatronics, and Electronics</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Projects ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/planes.html">RC Airplanes</a></li>
+                        <li><a href="/boats.html">RC Boats</a></li>
+                        <li><a href="/robotics-mechatronics.html">Robotics and Mechatronics</a></li>
+                        <li><a href="/DBF.html">Design Build Fly</a></li>
+                        <li><a href="/programming.html">Programming</a></li>
+                        <li><a href="/photography.html">Photography</a></li>
+                        <li><a href="/simulations.html">Simulations</a></li>
+                        <li><a href="/other.html">Other</a></li>
+                    </ul>
+                </li>
+
+                <!--<li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>-->
+            </ul>
+        </nav>
+    </header>
+
+    <h3>Pen plotter on a budget</h3>
+
+    <figure>
+        <img src="/images/other/IMG_4651.webp" alt="">
+        <figcaption>Budget Pen Plotter</figcaption>
+    </figure>
+
+    <p>Ahead of my university's career fair, I wanted to create a set of unique and memorable business cards which demonstrated my engineering skills. I had heard of electrical engineers designing PCB business cards, but I'm not an electrical engineer. Instead, I came up with the idea of creating a pen plotter and using it to draw out a business card with an ordinary pen. This way, I could achieve a look that is impossible with an ordinary inkjet or laser printer, but is also extremely difficult to achieve by hand.</p>
+
+    <p>Pen plotters are a great entry into hobbyist CNC technology, and is much more forgiving than similar projects such as building a CNC milling machine or a 3d printer. Thus, there are tons of pen plotter projects online that people have built encompassing a huge range of movement systems, linear guide technologies, motors, controllers, and pen heads. What almost all of these projects have in common is the use of stepper motors to control motion. Stepper motors are great because they are the easiest type of motor to control precisely, since one step on a stepper motor always corresponds to a fixed angle. Assuming the motor doesn't skip any steps, a fixed amount of steps should always correspond to the same movement distance. Steppers aren't without downsides, such as not having any feedback system in case the motor controller commands it to move more quickly than it can mechanically handle, causing it to skip steps and ruining accuracy.</p>
+
+    <p>However, I didn't want to use stepper motors in my project for another reason, and that's cost. A set of stepper motors can cost upwards of $40, while I can get a set of DC motors, magnetic encoders, motor drivers, and microcontrollers for under $15. Another place I decided to save costs on was the linear guides and motion system. Traditionally you had three options when it came to linear guides: linear rails, linear bearings on aluminum or steel rods, or v slot aluminum extrusion. Each of these options have their own upsides and downsides, but regardless they all cost just as much if not more than stepper motors do, so were immediately out of the question for this project. Instead, I decided to salvage some steel rods from a broken indoor lamp, and 3d print a set of rings which would slide along the steel rods.</p>
+
+    <figure>
+        <img src="/images/other/CAD.png" alt="">
+        <figcaption>CAD showing the one of the components that make up the gantry. The two rings on either side slide against the steel rods, while the nut is held in the middle.</figcaption>
+    </figure>
+
+    <p>There's a lot more variety out there when it comes to motion systems. I won't go into the upsides and downsides of each, but in the end, I decided on using a long #10-32 bolt and a corresponding nut as a lead screw (again, mostly for price considerations). While using a nut and bolt as a lead screw is definitely not ideal and not recommended for any serious project that requires any semblance of reliability or repeatability, it does have a few upsides. For one, the screw has a relatively fine pitch, meaning that motor innacuracy isn't as important because a few degrees of rotation only translates to less than a hundreth of a millimeter of linear travel. This setup does come with a lot of problems, though, such as huge amounts of backlash, the lead screw having a tendency to bind up under heavy load, and mechanical wear on the screw becoming a problem over time.</p>
+
+    <figure>
+        <img src="/images/other/IMG_4652.webp" alt="">
+        <figcaption>Closeup of the ESP32. Here you can also see the DC motor, the #10-32 bolt used as a lead screw, as well as two steel rods used as linear guides.</figcaption>
+    </figure>
+
+    <p>Using DC motors instead of stepper motors also has a lot of downsides. Working on this project, I realized very quickly why stepper motors are the standard for hobbyist projects, and why every project that substituted steppers for another type of motor has opted for brushless motors instead (expensive but can move much more quickly than steppers). Stepper motors are open loop, meaning that they do not have or require position feedback from another sensor to move to a precise location. DC motors, on the other hand, do require position feedback and some algorithm (PID) to force the motor to follow that position feedback.</p>
+
+
+
+    <p>For this purpose, I opted to use AS5600 magnetic encoders, and to drive the motor, I went with DRV8871 DC motor drivers and an ESP32 microcontroller to run the PID algorithm. I initially used an ESP8266, an older and slower version of the ESP32, but it was unable to run the PID loop fast enough for accurate control, as well as the wifi/bluetooth capability of the ESP8266 occasionally interfering with motor control. The ESP32 makes many improvements on its predecessor, such as moving PWM control (used for controlling the motor) from the CPU to a dedicated controller, allowing for a much faster PWM cycle than I was using on the ESP8266. Another issue I ran into was high friction, which was probably caused by my use of a nut and bolt as a lead screw and the use of cheap rods and 3d printed sliding parts as a linear guide. These factors combined meant the motor required at least 50% throttle to overcome kinetic friction (and around 70% to overcome static friction), which required me to implement feedforward into the PID controller to compensate.</p>
+
+    <p><div class="grid-container3">
+        <div class="grid-item">
+            <img src="/images/other/throttle-test.png">
+            <p class="caption">Position over time, throttle to 100% for 1s</p>
+        </div>
+        <div class="grid-item">
+            <img src="/images/other/velocity-PID-PWM-test.png">
+            <div class="caption">Velocity and PWM throttle over time as the motor turns 2 revolutions</div>
+        </div><br><br>
+    </div></p>
+
+    <p>I ran several tests on the plotter to find out some parameters such as feedforward parameters. Luckily having an encoder already mounted on the lead screw made data collection extremely easy. The first one involved simply running the motor at different throttles and recording its acceleration and velocity. One interesting problem I ran into while testing the plotter was an extremely large fluctuation (up to 20%!) in velocity during what was supposed to be constant velocity motion. After finding the required throttle to overcome friction, I started tuning PID parameters with a script which made the motor try to follow a predefined motion profile. This fluctuation occured in a pattern that looked like a really irregular sine wave. I initially chalked this up to friction, which made sense because the 3d printed coupling I printed to mount the lead screw to the motor had a seam which stuck out the side and would slide against the wall of the motor holder every revolution, which caused an audible noise every time it happened. But eventually I realized this didn't make sense, because the speed was dipping twice every revolution, not once. Still thinking it was some mechanical issue, I tried adding another feed forward term to the PID controller to compensate, before I realized I mounted the encoder slightly off center, causing the encoder to give readings which were off by around 3 degrees twice every revolution.</p>
+
+    <p>This project is still a work in progress! Check back here later for more updates.</p>
+
+    <p><div class="grid-container2">
+        <div class="grid-item">
+            <img src="/images/other/IMG_4629.webp">
+        </div><div class="grid-item">
+            <img src="/images/other/IMG_4634.webp">
+        </div>
+    </div><div class="caption">3d printer mounted vinyl cutter. The top section clamps onto the side of a 3d printer's print head, while the bottom allows the cutter blade to slightly move up and down under spring tension.</div></p>
+
+    <p>I also thought it would be a fun additional project to create homemade PCBs to replace the breadboards currently on the plotter. PCB making at home has also been around for a long time, but the most popular way of making them is both annoying, tedious, and requires handling chemicals which both my landlord and I would appreciate not having in the apartment. Thus, I looked for other ways of making PCBs at home. I came across a few videos where people 3d printed the shape of a PCB using PLA filament, with the lower areas being where the traces are, before applying copper tape and sanding away the higher areas, leaving the low areas untouched and preserving the copper tape in those spots. While its an inventive concept, its still not entirely practical. I eventually came across an obscure video of a person using a vinyl cutter blade mounted on a 3d printer head to cut aluminum foil into electrically conductive traces as a resistive heating element for his own DIY 3d printer project, which inspired me to create a similar version to cut copper tape.</p>
+
+    <figure>
+        <img src="/images/other/coppertape.webp" alt="copper tape cut with drag knife">
+        <figcaption>Copper tape cut into strips with a vinyl cutter blade. This was a test for how cutting depth impacts cut quality.</figcaption>
+    </figure>
+
+    <p>Initial testing suggests that this idea is feasible, although I haven't designed a PCB to cut with this method yet.</p><br>
+
+    <h3>Chess playing robot</h3>
+
+    <figure>
+        <img src="/images/other/chessbot.png" alt="chessbot">
+        <figcaption>Chessbot</figcaption>
+    </figure><br>
+
+
+
+    <p>I also built another similar robot, although this time for a student engineering organization. I joined the IEEE Robotics and Automation Society (RAS) in my freshman year of college. At RAS, I worked on chessbot, where I worked on a total redesign of the mechanical system with a focus on changing the gantry system to use coreXY. Beyond the technical redesign, I also managed project documentation and tracked overall progress to ensure team milestones were met.</p>
+
+    <!--<figure>
+        <img src="/.JPG" alt="charge limiter">
+        <figcaption>USB Charge Limiter</figcaption>
+    </figure>
+
+    <p>I built this charge limiter to save my old Android phone. The battery in it was almost dead, and I knew that keeping it around 50% was the best way to preserve what remained of the battery's lifespan. It uses an ESP-32 to connect to the phone via bluetooth, and an app on the phone reports the phone's battery percentage every 5 minutes. If the battery level ever fell below 45%, the charger would activate and charge it back up to 55%.</p>-->
+
+    <br><br>
+
+</body>
+</html>

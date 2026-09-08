@@ -80,6 +80,43 @@
             cursor: pointer;
         }
 
+        .grid-container2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 60vw;
+            margin: 0 auto;
+        }
+
+        .grid-container2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-container3 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 60vw;
+            margin: 0 auto;
+        }
+
+        .grid-container3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .caption {
+            text-align: center;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 3px;
+        }
+
         p {
             margin-left: 20px;
             margin-top: 5px;
@@ -102,12 +139,18 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+
+        h3 {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-text">
-        <h1>Robotics, Mechatronics, and Electronics</h1>
+        <h1>Other projects and experience</h1>
         </div>
 
         <nav>
@@ -119,6 +162,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="/planes.html">RC Airplanes</a></li>
                         <li><a href="/boats.html">RC Boats</a></li>
+                        <li><a href="/robotics-mechatronics.html">Robotics and Mechatronics</a></li>
                         <li><a href="/DBF.html">Design Build Fly</a></li>
                         <li><a href="/programming.html">Programming</a></li>
                         <li><a href="/photography.html">Photography</a></li>
@@ -133,30 +177,17 @@
         </nav>
     </header>
 
+<!--     <p>Here's some of my other experience!</p> -->
 
 
-    <p>Here's some of my other experience, mostly centered around my robotics and mechatronics projects.</p>
-
-    <figure>
-        <img src="/images/other/IMG_4651.jpeg" alt="">
-        <figcaption>Budget Pen Plotter</figcaption>
-    </figure><br>
-
-    <p></p>
+    <h3>Framework Laptop Repair</h3>
 
     <figure>
-        <img src="/images/other/chessbot.png" alt="chessbot">
-        <figcaption>Chessbot</figcaption>
-    </figure><br>
-
-    <p>I joined IEEE Robotics and Automation Society (RAS) in my freshman year of college. At RAS, I worked on chessbot, where I worked on a total redesign of the mechanical system with a focus on changing the gantry system to use coreXY. Beyond the technical redesign, I also managed project documentation and tracked overall progress to ensure team milestones were met.</p>
-
-    <figure>
-        <img src="/images/other/IMG_4647.jpeg" alt="laptop repair">
+        <img src="/images/other/laptop.webp" alt="laptop repair">
         <figcaption>Laptop Brain Surgery</figcaption>
     </figure><br>
 
-    <p>Another project I worked on was trying to fix a Framework laptop which had a broken mainboard. After taking it to a laptop repair shop, they said they couldn't fix it because they didn't have the tools needed to reflash the embedded controller (EC) firmware. Determined to bring the laptop back to life, I decided to look online and found Framework's <a href="https://github.com/FrameworkComputer/FrameworkDebugger/blob/main/README.md">documentation</a> about reflashing the EC from a USB-C port using an FTDI chip and a USB-C breakout board, along with this <a href="https://www.howett.net/posts/2023-04-framework-ec-card/">blog post</a> which documented this process. After repeated failed attempts, I concluded that the EC was broken to the point that it was no longer properly controlling the USB ports, and thus UART communication was no longer working over said port. In the future, I plan to solder wires to the dedicated debug port on the PCB, which has a more direct connection to the EC.</p>
+    <p>I recently tried to fix a Framework laptop which had a broken mainboard. After taking it to a laptop repair shop, they said they couldn't fix it because they didn't have the tools needed to reflash the embedded controller (EC) firmware. Determined to bring the laptop back to life, I decided to look online and found Framework's <a href="https://github.com/FrameworkComputer/FrameworkDebugger/blob/main/README.md">documentation</a> about reflashing the EC from a USB-C port using an FTDI chip and a USB-C breakout board, along with this <a href="https://www.howett.net/posts/2023-04-framework-ec-card/">blog post</a> which documented this process. After repeated failed attempts, I concluded that the EC was broken to the point that it was no longer properly controlling the USB ports, and thus UART communication was no longer working over said port. In the future, I plan to solder wires to the dedicated debug port on the PCB, which has a more direct connection to the EC.</p>
 
     <!--<figure>
         <img src="/.JPG" alt="charge limiter">
@@ -165,7 +196,7 @@
 
     <p>I built this charge limiter to save my old Android phone. The battery in it was almost dead, and I knew that keeping it around 50% was the best way to preserve what remained of the battery's lifespan. It uses an ESP-32 to connect to the phone via bluetooth, and an app on the phone reports the phone's battery percentage every 5 minutes. If the battery level ever fell below 45%, the charger would activate and charge it back up to 55%.</p>-->
 
-    <br><br>
+    <br><br><br><br>
 
 </body>
 </html>
