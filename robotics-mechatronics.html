@@ -219,9 +219,7 @@
         </div><br><br>
     </div></p>
 
-    <p>I ran several tests on the plotter to find out some parameters such as feedforward parameters. Luckily having an encoder already mounted on the lead screw made data collection extremely easy. The first one involved simply running the motor at different throttles and recording its acceleration and velocity. One interesting problem I ran into while testing the plotter was an extremely large fluctuation (up to 20%!) in velocity during what was supposed to be constant velocity motion. After finding the required throttle to overcome friction, I started tuning PID parameters with a script which made the motor try to follow a predefined motion profile. This fluctuation occured in a pattern that looked like a really irregular sine wave. I initially chalked this up to friction, which made sense because the 3d printed coupling I printed to mount the lead screw to the motor had a seam which stuck out the side and would slide against the wall of the motor holder every revolution, which caused an audible noise every time it happened. But eventually I realized this didn't make sense, because the speed was dipping twice every revolution, not once. Still thinking it was some mechanical issue, I tried adding another feed forward term to the PID controller to compensate, before I realized I mounted the encoder slightly off center, causing the encoder to give readings which were off by around 3 degrees twice every revolution.</p>
-
-    <p>This project is still a work in progress! Check back here later for more updates.</p>
+    <p>I ran several tests on the plotter to find out some parameters such as feedforward parameters. Luckily having an encoder already mounted on the lead screw made data collection extremely easy. The first one involved simply running the motor at different throttles and recording its acceleration and velocity. One interesting problem I ran into while testing the plotter was an extremely large fluctuation (up to 20%!) in velocity during what was supposed to be constant velocity motion. After finding the required throttle to overcome friction, I started tuning PID parameters with a script which made the motor try to follow a predefined motion profile. This fluctuation occured in a pattern that looked like a sine wave. I initially chalked this up to friction, which made sense because the 3d printed coupling I printed to mount the lead screw to the motor had a seam which stuck out the side and would occasionally slide against the wall of the motor mount, which caused an audible noise every revolution. But eventually I realized this didn't make sense, because the speed was dipping twice every revolution, not once. Still thinking it was some mechanical issue, I tried adding another feed forward term to the PID controller to compensate, before I realized I mounted the encoder slightly off center, causing the encoder to give readings which were off by around 3 degrees twice every revolution.</p>
 
     <p><div class="grid-container2">
         <div class="grid-item">
@@ -238,7 +236,11 @@
         <figcaption>Copper tape cut into strips with a vinyl cutter blade. This was a test for how cutting depth impacts cut quality.</figcaption>
     </figure>
 
-    <p>Initial testing suggests that this idea is feasible, although I haven't designed a PCB to cut with this method yet.</p><br>
+    <p>Initial testing suggests that this idea is feasible, although I haven't designed a PCB to cut with this method yet.</p>
+
+    <p>Both the plotter and PCB manufacturing projects are still a work in progress! Check back here later for more updates.</p>
+
+    <br>
 
     <h3>Chess playing robot</h3>
 
